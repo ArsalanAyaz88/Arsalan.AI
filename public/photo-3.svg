@@ -1,0 +1,6 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#FED7AA"/>
+  <circle cx="400" cy="250" r="80" fill="#FDBA74"/>
+  <polygon points="200,450 350,300 450,400 600,250 800,450" fill="#FB923C"/>
+  <text x="400" y="520" font-family="Arial" font-size="24" fill="#9A3412" text-anchor="middle">Photo 3</text>
+</svg>
