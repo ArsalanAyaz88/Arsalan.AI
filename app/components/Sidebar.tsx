@@ -12,7 +12,8 @@ export default function Sidebar({ onToggleHero }: SidebarProps = {}) {
 
   const navItems = [
     { name: 'About', id: 'about' },
-    { name: 'Publications', id: 'publications' },
+    { name: 'Technical Skills', id: 'publications' },
+    { name: 'My Projects', id: 'projects' },
     { name: 'Research', id: 'research' },
     { name: 'Teaching', id: 'teaching' },
     { name: 'Work Experience', id: 'work-experience' },
@@ -66,7 +67,7 @@ export default function Sidebar({ onToggleHero }: SidebarProps = {}) {
       <div className="w-24 h-24 rounded-full overflow-hidden mb-6 border-4 border-white">
         <Image
           src="/profile.svg"
-          alt="Frank Yang"
+          alt="Arsalan"
           width={96}
           height={96}
           className="object-cover"
@@ -74,13 +75,13 @@ export default function Sidebar({ onToggleHero }: SidebarProps = {}) {
       </div>
 
       {/* Name */}
-      <h1 className="text-2xl font-bold mb-2 text-center">Frank Yang</h1>
+      <h1 className="text-2xl font-bold mb-2 text-center">Arsalan Ayaz</h1>
 
       {/* Subtitle */}
       <p className="text-sm text-center mb-8 opacity-90">
-        Computer Scientist, Roboticist,
+        AI Engineer, FullStack Developer,
         <br />
-        amatuer Filmmaker
+        DevOps 
       </p>
 
       {/* Navigation */}
@@ -106,7 +107,7 @@ export default function Sidebar({ onToggleHero }: SidebarProps = {}) {
       {/* Social Icons */}
       <div className="mt-auto flex gap-4 text-white">
         <a
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/in/arsalan-ayaz-250057203/"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:opacity-80 hover:scale-110 transition-all duration-300 ease-in-out"
@@ -116,7 +117,7 @@ export default function Sidebar({ onToggleHero }: SidebarProps = {}) {
           </svg>
         </a>
         <a
-          href="https://github.com"
+          href="https://github.com/ArsalanAyaz88"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:opacity-80 hover:scale-110 transition-all duration-300 ease-in-out"
@@ -146,7 +147,7 @@ export default function Sidebar({ onToggleHero }: SidebarProps = {}) {
           </svg>
         </a>
         <a
-          href="mailto:email@example.com"
+          href="mailto:arsalanayaz821@gmail.com"
           className="hover:opacity-80 hover:scale-110 transition-all duration-300 ease-in-out"
         >
           <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

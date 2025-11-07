@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Frank Yang - Computer Scientist & Roboticist",
-  description: "Personal website of Frank Yang - Computer Science MS student at Northwestern University specializing in robotic learning and control",
+  title: "Arsalan Ayaz - AI Engineer & System Architect",
+  description: "Personal website of Arsalan Ayaz - Agentic AI Engineer at FISTA Solutions specializing in AI systems, Machine Learning, and DevOps",
 };
 
 export default function RootLayout({

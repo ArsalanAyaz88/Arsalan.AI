@@ -56,7 +56,7 @@ export default function Home() {
           <div className="w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-white shadow-lg">
             <Image
               src="/profile.svg"
-              alt="Frank Yang"
+              alt="Arsalan"
               width={128}
               height={128}
               className="object-cover"
@@ -64,11 +64,11 @@ export default function Home() {
           </div>
 
           {/* Name */}
-          <h1 className="text-5xl font-bold mb-4 text-shadow">Frank Yang</h1>
+          <h1 className="text-5xl font-bold mb-4 text-shadow">Arsalan Ayaz</h1>
 
           {/* Subtitle */}
           <p className="text-lg mb-8 opacity-90">
-            Computer Scientist, Roboticist, amatuer Filmmaker
+             AI Engineer, FullStack Developer, DevOps 
           </p>
 
           {/* Navigation Links */}
@@ -87,7 +87,15 @@ export default function Home() {
                   onClick={() => handleNavigate('publications')}
                   className="text-lg font-semibold hover:underline underline-offset-4 cursor-pointer"
                 >
-                  Publications
+                  Technical Skills
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNavigate('projects')}
+                  className="text-lg font-semibold hover:underline underline-offset-4 cursor-pointer"
+                >
+                  My Projects
                 </button>
               </li>
               <li>
@@ -204,133 +212,128 @@ export default function Home() {
       
       <main className="ml-64 flex-1 content-enter">
         {/* About Section */}
-        <section id="about" className="min-h-screen p-12 bg-white">
+        <section id="about" className="p-12 bg-white">
           <div className="max-w-4xl">
             <h1 className="text-4xl font-bold text-gray-900 mb-8">About</h1>
             
             <div className="prose prose-lg">
               <p className="text-gray-700 leading-relaxed mb-4">
-                Hi! My name is Frank. I am currently a Computer Science MS student at Northwestern University at the Design 
-                Automation of Intelligent Systems Lab <span className="text-blue-600">🔗</span> advised by Prof. Qi Zhu <span className="text-blue-600">🔗</span>. 
-                I also work closely with Prof. Chao Huang <span className="text-blue-600">🔗</span> at University of Southampton. 
-                I am also worked as a Robotics Learning Intern at the Stanford Vision and Learning Lab <span className="text-blue-600">🔗</span> advised 
-                by Prof. Fei-Fei Li <span className="text-blue-600">🔗</span>.
+                I am <strong>Arsalan Ayaz</strong>, an AI Engineer, Researcher, and System Architect passionate about transforming 
+                foundational AI research into real-world, production-grade intelligent systems. With a strong foundation in Machine 
+                Learning, Deep Learning, and Generative AI, I specialize in designing and deploying scalable, mission-critical AI 
+                solutions that bridge the gap between innovation and enterprise readiness.
               </p>
 
               <p className="text-gray-700 leading-relaxed mb-4">
-                I received my Bachelor's Degree with <em>summa cum laude</em> in Computer Science and Mathematics in 2024, also 
-                from Northwestern University. I had the privilege of collaborating with Professor Florian Willomitzer <span className="text-blue-600">🔗</span> at 
-                the 3DIM Lab <span className="text-blue-600">🔗</span>.
+                My experience includes building and orchestrating advanced AI systems using <strong>Docker</strong> and <strong>Kubernetes</strong>, 
+                enabling seamless scalability, reliability, and automation across distributed environments. I have hands-on expertise 
+                in <strong>Agentic AI</strong>, <strong>NLP</strong>, and <strong>Computer Vision</strong>, crafting solutions that 
+                combine cutting-edge research with practical implementation.
+              </p>
+
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Currently, I serve as an <strong>Agentic AI Engineer at FISTA Solutions</strong>, where I focus on developing 
+                next-generation AI applications. Previously, I worked on AI-driven projects such as an AI-generated music platform 
+                with intelligent recommendation features.
               </p>
 
               <p className="text-gray-700 leading-relaxed mb-6">
-                I have a broad interest in robotic learning and control. I'm fascinated by the challenge of building autonomous 
-                robots that navigate complex environments and perform long-horizon tasks efficiently and safely. I am researching 
-                on equipping robots with safe learning and runtime decision-making capabilities within uncertain environments 
-                subject to disturbances or observation delays. This interest extends from common applications like self-driving 
-                vehicles to humanoid robotics. Looking ahead, I aim to design state-of-the-art learning methods that effectively 
-                assist humans in complex tasks, while prioritizing safety alongside performance.
+                I hold an Associate's degree in Artificial Intelligence from <strong>PIAIC</strong> and completed a Bachelor's in 
+                Computer Science from the <strong>Virtual University of Pakistan</strong>. I'm driven by a mission to push the 
+                boundaries of intelligent systems—designing architectures that are not just powerful, but also adaptive, reliable, 
+                and ready for tomorrow's challenges.
               </p>
+            </div>
+          </div>
+        </section>
 
-              <p className="text-gray-700 leading-relaxed mb-4">
-                Within robotic learning and control, I am particularly interested in:
-              </p>
-
-              <div className="mb-6">
-                <p className="text-gray-800 font-semibold italic mb-2">Data-Driven Control in Uncertainty:</p>
-                <p className="text-gray-700 leading-relaxed ml-4">
-                  developing safe reinforcement learning and model predictive control strategies that can handle uncertainties 
-                  and observation delays in dynamic environments.
-                </p>
+        {/* Technical Skills Section */}
+        <section id="publications" className="p-12 bg-gray-50">
+          <div className="max-w-4xl">
+            <h1 className="text-4xl font-bold text-gray-900 mb-8">Technical Skills</h1>
+            
+            <div className="space-y-6">
+              {/* Programming & Frameworks */}
+              <div>
+                <p className="text-lg text-blue-500 mb-2">Programming & Frameworks</p>
+                <p className="text-gray-700 pl-0">TypeScript, Next.js, Python, FastAPI</p>
               </div>
 
-              <div className="mb-6">
-                <p className="text-gray-800 font-semibold italic mb-2">Safety Verification:</p>
-                <p className="text-gray-700 leading-relaxed ml-4">
-                  Equipping robots with decision-making capabilities that assess the safety of learned systems, especially in 
-                  the presence of neural network-controlled systems.
-                </p>
+              {/* AI & Machine Learning */}
+              <div>
+                <p className="text-lg text-blue-500 mb-2">Artificial Intelligence & Machine Learning</p>
+                <p className="text-gray-700 pl-0">PyTorch, TensorFlow, Deep Learning, Generative AI, LangChain, LangGraph, OpenAI Agent SDK</p>
               </div>
 
-              <div className="mb-6">
-                <p className="text-gray-800 font-semibold italic mb-2">Skill-Based Learning:</p>
-                <p className="text-gray-700 leading-relaxed ml-4">
-                  Developing long-horizon skill acquisition from expert demonstration. This includes imitation learning and 
-                  inverse reinforcement learning techniques.
-                </p>
+              {/* Databases & Vector Stores */}
+              <div>
+                <p className="text-lg text-blue-500 mb-2">Databases & Vector Stores</p>
+                <p className="text-gray-700 pl-0">MongoDB, PostgreSQL, Qdrant, Pinecone</p>
+              </div>
+
+              {/* DevOps & System Architecture */}
+              <div>
+                <p className="text-lg text-blue-500 mb-2">DevOps & System Architecture</p>
+                <p className="text-gray-700 pl-0">Docker, Kubernetes, GitHub, CI/CD Pipelines</p>
+              </div>
+
+              {/* AI Systems & MLOps */}
+              <div>
+                <p className="text-lg text-blue-500 mb-2">AI Systems & MLOps</p>
+                <ul className="list-disc text-gray-700 space-y-2 pl-5">
+                  <li>Design and orchestration of agentic AI architectures</li>
+                  <li>Model deployment, monitoring, and scalability across distributed systems</li>
+                </ul>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Publications Section */}
-        <section id="publications" className="min-h-screen p-12 bg-gray-50">
+        {/* My Projects Section */}
+        <section id="projects" className="p-12 bg-white">
           <div className="max-w-4xl">
-            <h1 className="text-4xl font-bold text-gray-900 mb-8">Publications</h1>
+            <h1 className="text-4xl font-bold text-gray-900 mb-8">My Projects</h1>
             
-            {/* Publications List */}
-            <div className="space-y-4 mb-12">
-              <div className="text-gray-700">
-                <p>
-                  S. Zhan, Q. Wu, <strong>F. Yang</strong>, X. Shi, C. Huang, Q. Zhu. Learning in Slow Motion: Adapting Offline Reinforcement 
-                  Learning with Online Delays. Neural Information Processing Systems, 2025. Paper <span className="text-blue-600">🔗</span> <strong>(In submission)</strong>
+            <div className="space-y-6">
+              {/* Project 1 */}
+              <div>
+                <p className="text-gray-700 mb-2 pl-0">Project Name 1</p>
+                <p className="text-gray-700 mb-2 pl-0">Technologies: Python, FastAPI, Docker</p>
+                <p className="text-gray-700 leading-relaxed mb-4 pl-0">
+                  Brief description of the project. What problem it solves, what technologies were used, and what the outcome was.
                 </p>
-              </div>
-
-              <div className="text-gray-700">
-                <p>
-                  S. Zhan, Q. Wu, Z. Ruan, <strong>F. Yang</strong>, P. Wang, Y. Wang, R. Jiao, C. Huang, Q. Zhu. Inverse Delayed Reinforcement 
-                  Learning. Learning for Dynamics and Control. 2025. Paper <span className="text-blue-600">🔗</span> <strong>(In submission)</strong>
-                </p>
-              </div>
-
-              <div className="text-gray-700">
-                <p>
-                  <strong>F. Yang</strong>, S. Zhan, Y. Wang, et al. Case Study: Runtime Safety Verification of Neural Network Controlled System. 
-                  Runtime Verification, 2024. Paper <span className="text-blue-600">🔗</span>
-                </p>
-              </div>
-
-              <div className="text-gray-700">
-                <p>
-                  <strong>F. Yang*</strong>, Y. Wen*. Efficient Encoding of Graphics Primitives with Simplex-based Structures. Midwest Machine 
-                  Learning Symposium, 2023. Paper <span className="text-blue-600">🔗</span>
-                </p>
-              </div>
-            </div>
-
-            {/* Research Projects */}
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Research Projects</h2>
-            
-            <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
-              <div className="flex gap-6">
-                <div className="w-64 h-48 relative flex-shrink-0 bg-gray-200 rounded">
-                  <Image
-                    src="/research-behavior.svg"
-                    alt="Research Project"
-                    fill
-                    className="object-cover rounded"
-                  />
+                <div className="flex gap-4">
+                  <a href="#" className="text-blue-500 hover:underline">View Project →</a>
+                  <a href="#" className="text-blue-500 hover:underline">GitHub →</a>
+                  <a href="#" className="text-blue-500 hover:underline">Docs →</a>
                 </div>
-                
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    Behavior 1K: A Human-Centered, Embodied AI Benchmark with 1,000 Everyday Activities and Realistic Simulation
-                  </h3>
-                  
-                  <p className="text-gray-700 mb-2">
-                    Advised by: Fei-Fei Li <span className="text-blue-600">🔗</span>
-                  </p>
-                  
-                  <p className="text-gray-700 mb-3">
-                    Sources: Project <span className="text-blue-600">🔗</span> / Paper <span className="text-blue-600">🔗</span>
-                  </p>
-                  
-                  <p className="text-gray-700 leading-relaxed">
-                    Development on BEHAVIOR 1K: 1000 embodied AI robotic learning simulation benchmark built upon NVIDIA Omniverse engine; 
-                    Decomposed complex, long-horizon tasks into learnable action primitives (pick, place, navigate); Implemented a 
-                    collision-free action primitives execution pipeline using...
-                  </p>
+              </div>
+
+              {/* Project 2 */}
+              <div>
+                <p className="text-gray-700 mb-2 pl-0">Project Name 2</p>
+                <p className="text-gray-700 mb-2 pl-0">Technologies: TypeScript, Next.js, MongoDB</p>
+                <p className="text-gray-700 leading-relaxed mb-4 pl-0">
+                  Brief description of the project. What problem it solves, what technologies were used, and what the outcome was.
+                </p>
+                <div className="flex gap-4">
+                  <a href="#" className="text-blue-500 hover:underline">View Project →</a>
+                  <a href="#" className="text-blue-500 hover:underline">GitHub →</a>
+                  <a href="#" className="text-blue-500 hover:underline">Docs →</a>
+                </div>
+              </div>
+
+              {/* Project 3 */}
+              <div>
+                <p className="text-gray-700 mb-2 pl-0">Project Name 3</p>
+                <p className="text-gray-700 mb-2 pl-0">Technologies: PyTorch, LangChain, Kubernetes</p>
+                <p className="text-gray-700 leading-relaxed mb-4 pl-0">
+                  Brief description of the project. What problem it solves, what technologies were used, and what the outcome was.
+                </p>
+                <div className="flex gap-4">
+                  <a href="#" className="text-blue-500 hover:underline">View Project →</a>
+                  <a href="#" className="text-blue-500 hover:underline">GitHub →</a>
+                  <a href="#" className="text-blue-500 hover:underline">Docs →</a>
                 </div>
               </div>
             </div>
@@ -338,7 +341,7 @@ export default function Home() {
         </section>
 
         {/* Research Section */}
-        <section id="research" className="min-h-screen p-12 bg-white">
+        <section id="research" className="p-12 bg-gray-50">
           <div className="max-w-4xl">
             <h1 className="text-4xl font-bold text-gray-900 mb-8">Research</h1>
             
@@ -378,7 +381,7 @@ export default function Home() {
         </section>
 
         {/* Teaching Section */}
-        <section id="teaching" className="min-h-screen p-12 bg-gray-50">
+        <section id="teaching" className="p-12 bg-gray-50">
           <div className="max-w-4xl">
             <h1 className="text-4xl font-bold text-gray-900 mb-8">Teaching</h1>
             
@@ -413,38 +416,32 @@ export default function Home() {
         </section>
 
         {/* Work Experience Section */}
-        <section id="work-experience" className="min-h-screen p-12 bg-white">
+        <section id="work-experience" className="p-12 bg-white">
           <div className="max-w-4xl">
             <h1 className="text-4xl font-bold text-gray-900 mb-8">Work Experience</h1>
             
             <div className="space-y-6">
               <div className="bg-gray-50 rounded-lg shadow-sm p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Robotics Learning Intern</h3>
-                <p className="text-gray-600 mb-2">Stanford Vision and Learning Lab | Summer 2024</p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Agentic AI Engineer</h3>
+                <p className="text-gray-600 mb-3">FISTA Solutions | September 2025 – Present</p>
+                <p className="text-sm text-gray-500 mb-3">Faisalabad, Punjab, Pakistan</p>
                 <ul className="list-disc list-inside text-gray-700 space-y-2">
-                  <li>Worked on BEHAVIOR 1K benchmark for embodied AI</li>
-                  <li>Developed collision-free action primitives for robotic manipulation</li>
-                  <li>Implemented learning algorithms for long-horizon task planning</li>
+                  <li>Leading the design and deployment of Agentic AI systems for enterprise-grade applications.</li>
+                  <li>Developing intelligent agents that integrate NLP and Generative AI for automation and decision-making.</li>
+                  <li>Building scalable, production-ready AI architectures using Docker and Kubernetes for distributed environments.</li>
+                  <li>Collaborating with cross-functional teams to translate AI research into practical, high-impact solutions.</li>
                 </ul>
               </div>
 
               <div className="bg-gray-50 rounded-lg shadow-sm p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Research Assistant</h3>
-                <p className="text-gray-600 mb-2">Northwestern University | 2022 - Present</p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Agentic AI Engineer (Freelance)</h3>
+                <p className="text-gray-600 mb-3">Upwork | January 2025 – August 2025</p>
+                <p className="text-sm text-gray-500 mb-3">England, United Kingdom (Remote)</p>
                 <ul className="list-disc list-inside text-gray-700 space-y-2">
-                  <li>Conducted research on safe reinforcement learning with observation delays</li>
-                  <li>Developed runtime verification methods for neural network controllers</li>
-                  <li>Published papers in top-tier conferences</li>
-                </ul>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg shadow-sm p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Software Engineering Intern</h3>
-                <p className="text-gray-600 mb-2">Tech Company | Summer 2023</p>
-                <ul className="list-disc list-inside text-gray-700 space-y-2">
-                  <li>Developed machine learning pipelines for production systems</li>
-                  <li>Optimized algorithm performance and reduced latency</li>
-                  <li>Collaborated with cross-functional teams</li>
+                  <li>Delivered multiple client projects focused on AI-driven automation and generative intelligence.</li>
+                  <li>Designed and developed an AI-generated music website with a user-friendly interface that generates and recommends music based on user preferences.</li>
+                  <li>Applied NLP and recommendation algorithms to personalize user experiences.</li>
+                  <li>Managed end-to-end AI model development, from experimentation to deployment in cloud-based environments.</li>
                 </ul>
               </div>
             </div>
@@ -452,7 +449,7 @@ export default function Home() {
         </section>
 
         {/* Photography Section */}
-        <section id="photography" className="min-h-screen p-12 bg-gray-50">
+        <section id="photography" className="p-12 bg-gray-50">
           <div className="max-w-6xl">
             <h1 className="text-4xl font-bold text-gray-900 mb-8">Photography</h1>
             
