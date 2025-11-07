@@ -42,8 +42,10 @@ export default function Home() {
   const [showHero, setShowHero] = useState(true);
   const [isExiting, setIsExiting] = useState(false);
   const [activeCertification, setActiveCertification] = useState<Certification | null>(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleNavigate = (sectionId: string) => {
+    setIsSidebarOpen(false);
     setIsExiting(true);
     setTimeout(() => {
       setShowHero(false);
@@ -61,11 +63,13 @@ export default function Home() {
   const handleToggleHero = () => {
     if (!showHero) {
       setShowHero(true);
+      setIsSidebarOpen(false);
     } else {
       setIsExiting(true);
       setTimeout(() => {
         setShowHero(false);
         setIsExiting(false);
+        setIsSidebarOpen(false);
       }, 400);
     }
   };
@@ -76,7 +80,7 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/hero-bg.svg"
+            src="/image.png"
             alt="Background"
             fill
             className="object-cover"
@@ -90,7 +94,7 @@ export default function Home() {
           {/* Profile Image */}
           <div className="w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-white shadow-lg">
             <Image
-              src="/profile.svg"
+              src="/wtl.png"
               alt="Arsalan"
               width={128}
               height={128}
@@ -211,7 +215,7 @@ export default function Home() {
               </svg>
             </a>
             <a
-              href="arsalanayaz821@gmail.com"
+              href="mailto:arsalanayaz821@gmail.com"
               className="hover:opacity-80 transition-opacity"
             >
               <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
@@ -242,12 +246,48 @@ export default function Home() {
   }
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
-      <Sidebar onToggleHero={handleToggleHero} />
-      
-      <main className="ml-64 flex-1 content-enter">
+    <div className="relative flex min-h-screen bg-gray-50">
+      <Sidebar
+        onToggleHero={handleToggleHero}
+        isMobileOpen={isSidebarOpen}
+        onCloseMobile={() => setIsSidebarOpen(false)}
+      />
+
+      {isSidebarOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black/60 lg:hidden"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+
+      <main className="flex-1 content-enter lg:ml-64">
+        <div className="sticky top-0 z-30 flex items-center justify-between gap-3 border-b border-gray-200 bg-gray-50/90 px-4 py-3 backdrop-blur-sm lg:hidden">
+          <button
+            type="button"
+            onClick={() => setIsSidebarOpen(true)}
+            className="inline-flex items-center gap-2 rounded-lg bg-sidebar px-3 py-2 text-sm font-semibold text-white shadow hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-white/60"
+          >
+            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            Menu
+          </button>
+
+          <button
+            type="button"
+            onClick={handleToggleHero}
+            className="inline-flex items-center gap-2 rounded-lg border border-sidebar px-3 py-2 text-sm font-semibold text-sidebar hover:bg-sidebar/10 focus:outline-none focus:ring-2 focus:ring-sidebar/40"
+          >
+            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 3H4a1 1 0 00-1 1v12a1 1 0 001 1h11m4-4l3 3m0 0l-3 3m3-3H9" />
+            </svg>
+            Hero View
+          </button>
+        </div>
+
+        <div className="px-4 pb-12 sm:px-8 lg:px-0">
         {/* About Section */}
-        <section id="about" className="p-12 bg-white">
+        <section id="about" className="bg-white px-4 py-12 sm:px-8 lg:px-12">
           <div className="max-w-4xl">
             <h1 className="text-4xl font-bold text-gray-900 mb-8">About</h1>
             
@@ -283,7 +323,7 @@ export default function Home() {
         </section>
 
         {/* Technical Skills Section */}
-        <section id="publications" className="p-12 bg-gray-50">
+        <section id="publications" className="bg-gray-50 px-4 py-12 sm:px-8 lg:px-12">
           <div className="max-w-4xl">
             <h1 className="text-4xl font-bold text-gray-900 mb-8">Technical Skills</h1>
             
@@ -325,7 +365,7 @@ export default function Home() {
         </section>
 
         {/* My Projects Section */}
-        <section id="projects" className="p-12 bg-white">
+        <section id="projects" className="bg-white px-4 py-12 sm:px-8 lg:px-12">
           <div className="max-w-4xl">
             <h1 className="text-4xl font-bold text-gray-900 mb-8">My Projects</h1>
             
@@ -376,7 +416,7 @@ export default function Home() {
         </section>
 
         {/* Research Section */}
-        <section id="research" className="p-12 bg-gray-50">
+        <section id="research" className="bg-gray-50 px-4 py-12 sm:px-8 lg:px-12">
           <div className="max-w-4xl">
             <h1 className="text-4xl font-bold text-gray-900 mb-8">Research</h1>
             
@@ -416,7 +456,7 @@ export default function Home() {
         </section>
 
         {/* Teaching Section */}
-        <section id="teaching" className="p-12 bg-gray-50">
+        <section id="teaching" className="bg-gray-50 px-4 py-12 sm:px-8 lg:px-12">
           <div className="max-w-4xl">
             <h1 className="text-4xl font-bold text-gray-900 mb-8">Teaching</h1>
             
@@ -451,7 +491,7 @@ export default function Home() {
         </section>
 
         {/* Work Experience Section */}
-        <section id="work-experience" className="p-12 bg-white">
+        <section id="work-experience" className="bg-white px-4 py-12 sm:px-8 lg:px-12">
           <div className="max-w-4xl">
             <h1 className="text-4xl font-bold text-gray-900 mb-8">Work Experience</h1>
             
@@ -484,7 +524,7 @@ export default function Home() {
         </section>
 
         {/* Certifications Section */}
-        <section id="certifications" className="p-12 bg-gray-50">
+        <section id="certifications" className="bg-gray-50 px-4 py-12 sm:px-8 lg:px-12">
           <div className="max-w-6xl">
             <h1 className="text-4xl font-bold text-gray-900 mb-8">Certifications</h1>
             
@@ -513,6 +553,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        </div>
       </main>
 
       {activeCertification && (

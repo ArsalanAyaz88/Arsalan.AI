@@ -5,9 +5,11 @@ import Image from 'next/image';
 
 interface SidebarProps {
   onToggleHero?: () => void;
+  isMobileOpen?: boolean;
+  onCloseMobile?: () => void;
 }
 
-export default function Sidebar({ onToggleHero }: SidebarProps = {}) {
+export default function Sidebar({ onToggleHero, isMobileOpen = false, onCloseMobile }: SidebarProps = {}) {
   const [activeSection, setActiveSection] = useState('about');
 
   const navItems = [
@@ -25,6 +27,11 @@ export default function Sidebar({ onToggleHero }: SidebarProps = {}) {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  };
+
+  const handleNavClick = (id: string) => {
+    scrollToSection(id);
+    onCloseMobile?.();
   };
 
   useEffect(() => {
@@ -49,12 +56,31 @@ export default function Sidebar({ onToggleHero }: SidebarProps = {}) {
   }, []);
 
   return (
-    <div className="fixed left-0 top-0 h-full w-64 bg-sidebar text-white flex flex-col items-center py-12 px-6 z-50 sidebar-enter">
+    <div
+      className={`sidebar-enter bg-sidebar text-white flex flex-col items-center py-12 px-6 z-50 overflow-y-auto transition-transform duration-300 ease-in-out
+        ${isMobileOpen ? 'fixed inset-0 flex w-full max-w-xs sm:max-w-sm shadow-2xl' : 'hidden'}
+        lg:fixed lg:left-0 lg:top-0 lg:h-full lg:w-64 lg:flex lg:shadow-none`}
+      style={{
+        backgroundImage: "linear-gradient(135deg, rgba(139, 69, 19, 0.9) 0%, rgba(160, 82, 45, 0.9) 100%), url('/image.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      {onCloseMobile && (
+        <button
+          onClick={onCloseMobile}
+          className="absolute left-4 top-4 text-white text-3xl leading-none lg:hidden"
+          aria-label="Close navigation"
+        >
+          ×
+        </button>
+      )}
+
       {/* Hamburger Menu Button - Toggle back to Hero */}
       {onToggleHero && (
         <button
           onClick={onToggleHero}
-          className="absolute top-4 right-4 text-white p-2 hover:bg-white/10 rounded transition-all duration-300 ease-in-out hover:scale-110"
+          className="absolute top-4 right-4 hidden text-white p-2 hover:bg-white/10 rounded transition-all duration-300 ease-in-out hover:scale-110 lg:inline-flex"
           aria-label="Toggle to hero view"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -66,7 +92,7 @@ export default function Sidebar({ onToggleHero }: SidebarProps = {}) {
       {/* Profile Image */}
       <div className="w-24 h-24 rounded-full overflow-hidden mb-6 border-4 border-white">
         <Image
-          src="/profile.svg"
+          src="/wtl.png"
           alt="Arsalan"
           width={96}
           height={96}
@@ -88,7 +114,7 @@ export default function Sidebar({ onToggleHero }: SidebarProps = {}) {
           {navItems.map((item) => (
             <li key={item.id}>
               <button
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNavClick(item.id)}
                 className={`block w-full text-center py-2 px-4 rounded transition-all duration-300 ease-in-out ${
                   activeSection === item.id
                     ? 'bg-white/20 font-semibold transform scale-105'
