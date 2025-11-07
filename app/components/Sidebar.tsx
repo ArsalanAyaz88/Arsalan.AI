@@ -4,10 +4,10 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 interface SidebarProps {
-  onToggleHero: () => void;
+  onToggleHero?: () => void;
 }
 
-export default function Sidebar({ onToggleHero }: SidebarProps) {
+export default function Sidebar({ onToggleHero }: SidebarProps = {}) {
   const [activeSection, setActiveSection] = useState('about');
 
   const navItems = [
@@ -50,15 +50,17 @@ export default function Sidebar({ onToggleHero }: SidebarProps) {
   return (
     <div className="fixed left-0 top-0 h-full w-64 bg-sidebar text-white flex flex-col items-center py-12 px-6 z-50">
       {/* Hamburger Menu Button - Toggle back to Hero */}
-      <button
-        onClick={onToggleHero}
-        className="absolute top-4 right-4 text-white p-2 hover:bg-white/10 rounded transition-all"
-        aria-label="Toggle to hero view"
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
+      {onToggleHero && (
+        <button
+          onClick={onToggleHero}
+          className="absolute top-4 right-4 text-white p-2 hover:bg-white/10 rounded transition-all"
+          aria-label="Toggle to hero view"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      )}
 
       {/* Profile Image */}
       <div className="w-24 h-24 rounded-full overflow-hidden mb-6 border-4 border-white">
