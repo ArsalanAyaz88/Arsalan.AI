@@ -6,18 +6,38 @@ import Image from 'next/image';
 
 export default function Home() {
   const [showHero, setShowHero] = useState(true);
+  const [isExiting, setIsExiting] = useState(false);
 
-  const handleNavigate = () => {
-    setShowHero(false);
+  const handleNavigate = (sectionId: string) => {
+    setIsExiting(true);
+    setTimeout(() => {
+      setShowHero(false);
+      setIsExiting(false);
+      // Scroll to the section after a short delay to ensure DOM is ready
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }, 400);
   };
 
   const handleToggleHero = () => {
-    setShowHero(!showHero);
+    if (!showHero) {
+      setShowHero(true);
+    } else {
+      setIsExiting(true);
+      setTimeout(() => {
+        setShowHero(false);
+        setIsExiting(false);
+      }, 400);
+    }
   };
 
   if (showHero) {
     return (
-      <div className="relative min-h-screen w-full overflow-hidden">
+      <div className={`relative min-h-screen w-full overflow-hidden ${isExiting ? 'hero-exit' : 'animate-fadeIn'}`}>
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -56,7 +76,7 @@ export default function Home() {
             <ul className="space-y-3">
               <li>
                 <button
-                  onClick={handleNavigate}
+                  onClick={() => handleNavigate('about')}
                   className="text-lg font-semibold hover:underline underline-offset-4 cursor-pointer"
                 >
                   About
@@ -64,7 +84,7 @@ export default function Home() {
               </li>
               <li>
                 <button
-                  onClick={handleNavigate}
+                  onClick={() => handleNavigate('publications')}
                   className="text-lg font-semibold hover:underline underline-offset-4 cursor-pointer"
                 >
                   Publications
@@ -72,7 +92,7 @@ export default function Home() {
               </li>
               <li>
                 <button
-                  onClick={handleNavigate}
+                  onClick={() => handleNavigate('research')}
                   className="text-lg font-semibold hover:underline underline-offset-4 cursor-pointer"
                 >
                   Research
@@ -80,7 +100,7 @@ export default function Home() {
               </li>
               <li>
                 <button
-                  onClick={handleNavigate}
+                  onClick={() => handleNavigate('teaching')}
                   className="text-lg font-semibold hover:underline underline-offset-4 cursor-pointer"
                 >
                   Teaching
@@ -88,7 +108,7 @@ export default function Home() {
               </li>
               <li>
                 <button
-                  onClick={handleNavigate}
+                  onClick={() => handleNavigate('work-experience')}
                   className="text-lg font-semibold hover:underline underline-offset-4 cursor-pointer"
                 >
                   Work Experience
@@ -96,7 +116,7 @@ export default function Home() {
               </li>
               <li>
                 <button
-                  onClick={handleNavigate}
+                  onClick={() => handleNavigate('photography')}
                   className="text-lg font-semibold hover:underline underline-offset-4 cursor-pointer"
                 >
                   Photography
@@ -182,7 +202,7 @@ export default function Home() {
     <div className="flex min-h-screen bg-gray-50">
       <Sidebar onToggleHero={handleToggleHero} />
       
-      <main className="ml-64 flex-1">
+      <main className="ml-64 flex-1 content-enter">
         {/* About Section */}
         <section id="about" className="min-h-screen p-12 bg-white">
           <div className="max-w-4xl">
