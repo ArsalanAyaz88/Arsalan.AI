@@ -4,9 +4,44 @@ import { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import Image from 'next/image';
 
+type Certification = {
+  title: string;
+  src: string;
+  alt: string;
+};
+
+const CERTIFICATIONS: Certification[] = [
+  {
+    title: 'MultiAgentic Systems',
+    src: 'https://res.cloudinary.com/dz0nrto5b/image/upload/v1762537481/crewai_mam7bf.png',
+    alt: 'MultiAgentic Systems Certification',
+  },
+  {
+    title: 'Intro to AI',
+    src: 'https://res.cloudinary.com/dz0nrto5b/image/upload/v1762537481/intro_to_ai_wqcpcg.png',
+    alt: 'Intro to AI Certification',
+  },
+  {
+    title: 'Intro to ChatGPT and Generative AI',
+    src: 'https://res.cloudinary.com/dz0nrto5b/image/upload/v1762537481/genai_nvpwq4.png',
+    alt: 'Intro to ChatGPT and Generative AI Certification',
+  },
+  {
+    title: 'Mathematics',
+    src: 'https://res.cloudinary.com/dz0nrto5b/image/upload/v1762537481/mathematics_xrynij.png',
+    alt: 'Mathematics Certification',
+  },
+  {
+    title: 'Intro LangGraph',
+    src: 'https://res.cloudinary.com/dz0nrto5b/image/upload/v1762537480/langGraph_bkgzkz.png',
+    alt: 'Intro LangGraph Certification',
+  },
+];
+
 export default function Home() {
   const [showHero, setShowHero] = useState(true);
   const [isExiting, setIsExiting] = useState(false);
+  const [activeCertification, setActiveCertification] = useState<Certification | null>(null);
 
   const handleNavigate = (sectionId: string) => {
     setIsExiting(true);
@@ -68,7 +103,7 @@ export default function Home() {
 
           {/* Subtitle */}
           <p className="text-lg mb-8 opacity-90">
-             AI Engineer, FullStack Developer, DevOps 
+             Cloud Native AI Engineer 
           </p>
 
           {/* Navigation Links */}
@@ -124,10 +159,10 @@ export default function Home() {
               </li>
               <li>
                 <button
-                  onClick={() => handleNavigate('photography')}
+                  onClick={() => handleNavigate('certifications')}
                   className="text-lg font-semibold hover:underline underline-offset-4 cursor-pointer"
                 >
-                  Photography
+                  Certifications
                 </button>
               </li>
             </ul>
@@ -136,7 +171,7 @@ export default function Home() {
           {/* Social Icons */}
           <div className="flex gap-6 text-white">
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/arsalan-ayaz-250057203/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-80 transition-opacity"
@@ -146,7 +181,7 @@ export default function Home() {
               </svg>
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/ArsalanAyaz88"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-80 transition-opacity"
@@ -156,7 +191,7 @@ export default function Home() {
               </svg>
             </a>
             <a
-              href="/cv.pdf"
+              href="https://docs.google.com/document/d/17kB46-msT1tgfbX32vRRNLVbj4mh4AGUU0hLe6RQQK4/edit?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-80 transition-opacity"
@@ -176,7 +211,7 @@ export default function Home() {
               </svg>
             </a>
             <a
-              href="mailto:email@example.com"
+              href="arsalanayaz821@gmail.com"
               className="hover:opacity-80 transition-opacity"
             >
               <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
@@ -297,14 +332,14 @@ export default function Home() {
             <div className="space-y-6">
               {/* Project 1 */}
               <div>
-                <p className="text-gray-700 mb-2 pl-0">Project Name 1</p>
-                <p className="text-gray-700 mb-2 pl-0">Technologies: Python, FastAPI, Docker</p>
+                <p className="text-gray-700 mb-2 pl-0">Youtube Automation Agent</p>
+                <p className="text-gray-700 mb-2 pl-0">Technologies: Spec Kit, AI Driven Development (AIDD), Nextjs, FastAPI, OpenAI AgentSDK, Short Term Memory (STM), Long Term Memory (LTM), Central Memory (CM), Reinforcement Learning</p>
                 <p className="text-gray-700 leading-relaxed mb-4 pl-0">
-                  Brief description of the project. What problem it solves, what technologies were used, and what the outcome was.
+                  An intelligent agent that helps YouTube content creators discover future topic ideas by analyzing their competitor's or their own channel's past performance. Uses the latest 30 videos data to make data-driven content recommendations—no guesswork, just insights.
                 </p>
                 <div className="flex gap-4">
-                  <a href="#" className="text-blue-500 hover:underline">View Project →</a>
-                  <a href="#" className="text-blue-500 hover:underline">GitHub →</a>
+                  <a href="https://automation-agent-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">View Project →</a>
+                  <a href="https://github.com/ArsalanAyaz88/AutomationAgent_Backend.git" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">GitHub →</a>
                   <a href="#" className="text-blue-500 hover:underline">Docs →</a>
                 </div>
               </div>
@@ -448,30 +483,69 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Photography Section */}
-        <section id="photography" className="p-12 bg-gray-50">
+        {/* Certifications Section */}
+        <section id="certifications" className="p-12 bg-gray-50">
           <div className="max-w-6xl">
-            <h1 className="text-4xl font-bold text-gray-900 mb-8">Photography</h1>
+            <h1 className="text-4xl font-bold text-gray-900 mb-8">Certifications</h1>
             
             <p className="text-gray-700 mb-8">
-              In my free time, I enjoy capturing moments through photography. Here are some of my favorite shots.
+              Professional certifications demonstrating expertise in AI, Machine Learning, and related technologies.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[1, 2, 3, 4, 5, 6].map((i) => (
-                <div key={i} className="relative h-64 bg-gray-200 rounded-lg overflow-hidden">
+              {CERTIFICATIONS.map((cert) => (
+                <button
+                  key={cert.title}
+                  type="button"
+                  onClick={() => setActiveCertification(cert)}
+                  className="group relative h-64 w-full overflow-hidden rounded-lg bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  aria-label={`View ${cert.title} certification`}
+                >
                   <Image
-                    src={`/photo-${i}.svg`}
-                    alt={`Photography ${i}`}
+                    src={cert.src}
+                    alt={cert.alt}
                     fill
-                    className="object-cover hover:scale-105 transition-transform duration-300"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
-                </div>
+                </button>
               ))}
             </div>
           </div>
         </section>
       </main>
+
+      {activeCertification && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-4"
+          onClick={() => setActiveCertification(null)}
+        >
+          <div
+            className="relative w-full max-w-5xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setActiveCertification(null)}
+              className="absolute top-3 right-3 text-white text-3xl leading-none hover:text-blue-200 focus:outline-none"
+              aria-label="Close certification preview"
+            >
+              ×
+            </button>
+            <Image
+              src={activeCertification.src}
+              alt={activeCertification.alt}
+              width={1600}
+              height={900}
+              className="w-full h-auto max-h-[80vh] rounded-lg object-contain"
+              priority
+            />
+            <p className="mt-4 text-center text-white text-lg font-medium">
+              {activeCertification.title}
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

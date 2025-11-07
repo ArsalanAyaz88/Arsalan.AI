@@ -17,7 +17,7 @@ export default function Sidebar({ onToggleHero }: SidebarProps = {}) {
     { name: 'Research', id: 'research' },
     { name: 'Teaching', id: 'teaching' },
     { name: 'Work Experience', id: 'work-experience' },
-    { name: 'Photography', id: 'photography' },
+    { name: 'Certifications', id: 'certifications' },
   ];
 
   const scrollToSection = (id: string) => {
@@ -79,9 +79,7 @@ export default function Sidebar({ onToggleHero }: SidebarProps = {}) {
 
       {/* Subtitle */}
       <p className="text-sm text-center mb-8 opacity-90">
-        AI Engineer, FullStack Developer,
-        <br />
-        DevOps 
+        Cloud Native AI Engineer
       </p>
 
       {/* Navigation */}
@@ -127,10 +125,10 @@ export default function Sidebar({ onToggleHero }: SidebarProps = {}) {
           </svg>
         </a>
         <a
-          href="/cv.pdf"
+          href="https://docs.google.com/document/d/17kB46-msT1tgfbX32vRRNLVbj4mh4AGUU0hLe6RQQK4/edit?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:opacity-80 hover:scale-110 transition-all duration-300 ease-in-out"
+          className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
         >
           <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
             <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
