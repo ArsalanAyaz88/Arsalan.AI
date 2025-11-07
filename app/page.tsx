@@ -142,7 +142,7 @@ export default function Home() {
                   onClick={() => handleNavigate('research')}
                   className="text-lg font-semibold hover:underline underline-offset-4 cursor-pointer"
                 >
-                  Research
+                  Research Papers Coded
                 </button>
               </li>
               <li>
@@ -380,7 +380,6 @@ export default function Home() {
                 <div className="flex gap-4">
                   <a href="https://automation-agent-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">View Project →</a>
                   <a href="https://github.com/ArsalanAyaz88/AutomationAgent_Backend.git" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">GitHub →</a>
-                  <a href="#" className="text-blue-500 hover:underline">Docs →</a>
                 </div>
               </div>
 
@@ -394,7 +393,6 @@ export default function Home() {
                 <div className="flex gap-4">
                   <a href="#" className="text-blue-500 hover:underline">View Project →</a>
                   <a href="#" className="text-blue-500 hover:underline">GitHub →</a>
-                  <a href="#" className="text-blue-500 hover:underline">Docs →</a>
                 </div>
               </div>
 
@@ -408,7 +406,6 @@ export default function Home() {
                 <div className="flex gap-4">
                   <a href="#" className="text-blue-500 hover:underline">View Project →</a>
                   <a href="#" className="text-blue-500 hover:underline">GitHub →</a>
-                  <a href="#" className="text-blue-500 hover:underline">Docs →</a>
                 </div>
               </div>
             </div>

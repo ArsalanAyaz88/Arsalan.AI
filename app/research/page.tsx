@@ -7,7 +7,7 @@ export default function Research() {
       
       <main className="ml-64 flex-1 p-12">
         <div className="max-w-4xl">
-          <h1 className="text-4xl font-bold text-gray-900 mb-8">Research</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-8">Research Papers Coded</h1>
           
           <div className="prose prose-lg">
             <p className="text-gray-700 leading-relaxed mb-4">

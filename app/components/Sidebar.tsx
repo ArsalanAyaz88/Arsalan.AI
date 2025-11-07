@@ -16,7 +16,7 @@ export default function Sidebar({ onToggleHero, isMobileOpen = false, onCloseMob
     { name: 'About', id: 'about' },
     { name: 'Technical Skills', id: 'publications' },
     { name: 'My Projects', id: 'projects' },
-    { name: 'Research', id: 'research' },
+    { name: 'Research Papers Coded', id: 'research' },
     { name: 'Teaching', id: 'teaching' },
     { name: 'Work Experience', id: 'work-experience' },
     { name: 'Certifications', id: 'certifications' },
