@@ -458,39 +458,49 @@ export default function Home() {
 
         {/* Technical Skills Section */}
         <section id="publications" className="bg-gray-50 px-4 py-12 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-4xl">
+          <div className="max-w-4xl sm:mx-auto lg:ml-0 lg:mr-auto">
             <h1 className="mb-12 text-4xl font-bold text-gray-900">Technical Skills</h1>
 
-            <div className="relative pl-10 sm:pl-20">
-              <div className="pointer-events-none absolute left-5 top-0 bottom-0 w-[3px] rounded-full bg-emerald-400 sm:left-9"></div>
+            <div className="relative pl-10 sm:pl-16 md:px-0 md:pl-0">
+              <div className="pointer-events-none absolute left-5 top-0 bottom-0 w-[3px] rounded-full bg-emerald-400 sm:left-9 md:left-1/2 md:-translate-x-1/2"></div>
 
-              <div className="space-y-10">
-                {TECHNICAL_SKILLS.map((skill) => (
-                  <div key={skill.title} className="relative">
-                    <div className="ml-8 rounded-2xl border border-gray-200 bg-white px-6 py-6 shadow-sm sm:ml-16">
-                      <h2 className="text-[26px] font-normal leading-snug text-[#2f2f2f]">{skill.title}</h2>
-                      <p className="mt-1 text-sm text-gray-500">{skill.subtitle}</p>
+              <div className="space-y-12 md:space-y-16">
+                {TECHNICAL_SKILLS.map((skill, index) => {
+                  const alignRight = index % 2 !== 0;
 
-                      <div className="mt-5 flex flex-wrap gap-2">
-                        {skill.tags.map((tag) => (
-                          <SkillTagBadge key={tag.name} tag={tag} />
-                        ))}
-                      </div>
+                  return (
+                    <div key={skill.title} className="relative">
+                      <div
+                        className={`w-full rounded-2xl bg-white px-5 py-5 transition-transform duration-200 hover:-translate-y-1 md:max-w-sm lg:max-w-md ${
+                          alignRight
+                            ? 'md:ml-auto md:pl-12 md:pr-6 md:text-left md:translate-x-6'
+                            : 'md:mr-auto md:pr-12 md:pl-6 md:text-right md:-translate-x-6'
+                        }`}
+                      >
+                        <h2 className="text-[24px] font-normal leading-snug text-[#2f2f2f]">{skill.title}</h2>
+                        <p className="mt-1 text-sm text-gray-500">{skill.subtitle}</p>
 
-                      <p className="mt-5 text-gray-600 leading-relaxed">{skill.description}</p>
-
-                      {skill.details && (
-                        <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-gray-600">
-                          {skill.details.map((detail) => (
-                            <li key={detail} className="leading-relaxed">
-                              {detail}
-                            </li>
+                        <div className={`mt-5 flex flex-wrap gap-2 ${alignRight ? 'md:justify-start' : 'md:justify-end'}`}>
+                          {skill.tags.map((tag) => (
+                            <SkillTagBadge key={tag.name} tag={tag} />
                           ))}
-                        </ul>
-                      )}
+                        </div>
+
+                        <p className="mt-5 text-gray-600 leading-relaxed">{skill.description}</p>
+
+                        {skill.details && (
+                          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-gray-600">
+                            {skill.details.map((detail) => (
+                              <li key={detail} className="leading-relaxed">
+                                {detail}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -603,7 +613,7 @@ export default function Home() {
             
             <div className="prose prose-lg">
               <p className="text-gray-700 leading-relaxed mb-4">
-                I've coded the following open source research papers and implemented in real world applications.
+                I've coded the following open source research papers in the field of AI and implemented in real world applications.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
