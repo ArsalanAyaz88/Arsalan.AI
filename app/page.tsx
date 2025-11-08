@@ -10,6 +10,49 @@ type Certification = {
   alt: string;
 };
 
+type SkillTag = {
+  name: string;
+  tone?: 'dark' | 'accent';
+};
+
+type SkillSegment = {
+  title: string;
+  subtitle: string;
+  description: string;
+  tags: SkillTag[];
+  details?: string[];
+};
+
+const CodeIcon = () => (
+  <svg
+    className="ml-2 h-3.5 w-3.5 text-white"
+    viewBox="0 0 20 20"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M7.5 6.5L4 10l3.5 3.5M12.5 6.5L16 10l-3.5 3.5"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+const SkillTagBadge = ({ tag }: { tag: SkillTag }) => {
+  const labelBg = tag.tone === 'accent' ? 'bg-gray-800' : 'bg-gray-900';
+
+  return (
+    <span className="inline-flex overflow-hidden rounded-md shadow-sm ring-1 ring-gray-200">
+      <span className={`px-3 py-1 text-sm font-medium text-white ${labelBg}`}>{tag.name}</span>
+      <span className="flex items-center bg-emerald-500 px-2.5 py-1 text-white">
+        <CodeIcon />
+      </span>
+    </span>
+  );
+};
+
 const CERTIFICATIONS: Certification[] = [
   {
     title: 'MultiAgentic Systems',
@@ -35,6 +78,74 @@ const CERTIFICATIONS: Certification[] = [
     title: 'Intro LangGraph',
     src: 'https://res.cloudinary.com/dz0nrto5b/image/upload/v1762537480/langGraph_bkgzkz.png',
     alt: 'Intro LangGraph Certification',
+  },
+];
+
+const TECHNICAL_SKILLS: SkillSegment[] = [
+  {
+    title: 'Programming & Frameworks',
+    subtitle: 'Type-safe product engineering',
+    description:
+      'Building resilient, full-stack experiences using component-driven patterns, typed contracts, and high-velocity iteration.',
+    tags: [
+      { name: 'TypeScript', tone: 'dark' },
+      { name: 'Next.js', tone: 'dark' },
+      { name: 'Python', tone: 'accent' },
+      { name: 'FastAPI', tone: 'accent' },
+    ],
+  },
+  {
+    title: 'Artificial Intelligence & Machine Learning',
+    subtitle: 'Research-grade model development',
+    description:
+      'Designing agentic workflows, fine-tuning foundation models, and deploying production-ready AI systems.',
+    tags: [
+      { name: 'PyTorch', tone: 'accent' },
+      { name: 'TensorFlow', tone: 'dark' },
+      { name: 'Generative AI', tone: 'accent' },
+      { name: 'LangChain', tone: 'dark' },
+      { name: 'LangGraph', tone: 'accent' },
+      { name: 'OpenAI Agent SDK', tone: 'dark' },
+    ],
+  },
+  {
+    title: 'Databases & Vector Stores',
+    subtitle: 'Low-latency retrieval infrastructure',
+    description:
+      'Architecting hybrid data topologies that power semantic search, contextual recall, and analytics pipelines.',
+    tags: [
+      { name: 'MongoDB', tone: 'dark' },
+      { name: 'PostgreSQL', tone: 'accent' },
+      { name: 'Qdrant', tone: 'accent' },
+      { name: 'Pinecone', tone: 'dark' },
+    ],
+  },
+  {
+    title: 'DevOps & System Architecture',
+    subtitle: 'Cloud-native automation',
+    description:
+      'Automating CI/CD workflows and orchestrating distributed compute platforms for trustworthy releases at scale.',
+    tags: [
+      { name: 'Docker', tone: 'dark' },
+      { name: 'Kubernetes', tone: 'accent' },
+      { name: 'GitHub Actions', tone: 'dark' },
+      { name: 'CI/CD Pipelines', tone: 'accent' },
+    ],
+  },
+  {
+    title: 'AI Systems & MLOps',
+    subtitle: 'Lifecycle governance',
+    description:
+      'Overseeing model deployment, monitoring, and continuous adaptation for resilient agentic AI ecosystems.',
+    tags: [
+      { name: 'Agentic Architecture', tone: 'dark' },
+      { name: 'Model Monitoring', tone: 'accent' },
+      { name: 'Scalability', tone: 'accent' },
+    ],
+    details: [
+      'Design and orchestration of agentic AI architectures tailored for production.',
+      'Model deployment, monitoring, and continuous improvement across distributed systems.',
+    ],
   },
 ];
 
@@ -347,41 +458,39 @@ export default function Home() {
 
         {/* Technical Skills Section */}
         <section id="publications" className="bg-gray-50 px-4 py-12 sm:px-8 lg:px-12">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl font-bold text-gray-900 mb-8">Technical Skills</h1>
-            
-            <div className="space-y-6">
-              {/* Programming & Frameworks */}
-              <div>
-                <p className="text-lg text-blue-500 mb-2">Programming & Frameworks</p>
-                <p className="text-gray-700 pl-0">TypeScript, Next.js, Python, FastAPI</p>
-              </div>
+          <div className="mx-auto max-w-4xl">
+            <h1 className="mb-12 text-4xl font-bold text-gray-900">Technical Skills</h1>
 
-              {/* AI & Machine Learning */}
-              <div>
-                <p className="text-lg text-blue-500 mb-2">Artificial Intelligence & Machine Learning</p>
-                <p className="text-gray-700 pl-0">PyTorch, TensorFlow, Deep Learning, Generative AI, LangChain, LangGraph, OpenAI Agent SDK</p>
-              </div>
+            <div className="relative pl-10 sm:pl-20">
+              <div className="pointer-events-none absolute left-5 top-0 bottom-0 w-[3px] rounded-full bg-emerald-400 sm:left-9"></div>
 
-              {/* Databases & Vector Stores */}
-              <div>
-                <p className="text-lg text-blue-500 mb-2">Databases & Vector Stores</p>
-                <p className="text-gray-700 pl-0">MongoDB, PostgreSQL, Qdrant, Pinecone</p>
-              </div>
+              <div className="space-y-10">
+                {TECHNICAL_SKILLS.map((skill) => (
+                  <div key={skill.title} className="relative">
+                    <div className="ml-8 rounded-2xl border border-gray-200 bg-white px-6 py-6 shadow-sm sm:ml-16">
+                      <h2 className="text-[26px] font-normal leading-snug text-[#2f2f2f]">{skill.title}</h2>
+                      <p className="mt-1 text-sm text-gray-500">{skill.subtitle}</p>
 
-              {/* DevOps & System Architecture */}
-              <div>
-                <p className="text-lg text-blue-500 mb-2">DevOps & System Architecture</p>
-                <p className="text-gray-700 pl-0">Docker, Kubernetes, GitHub, CI/CD Pipelines</p>
-              </div>
+                      <div className="mt-5 flex flex-wrap gap-2">
+                        {skill.tags.map((tag) => (
+                          <SkillTagBadge key={tag.name} tag={tag} />
+                        ))}
+                      </div>
 
-              {/* AI Systems & MLOps */}
-              <div>
-                <p className="text-lg text-blue-500 mb-2">AI Systems & MLOps</p>
-                <ul className="list-disc text-gray-700 space-y-2 pl-5">
-                  <li>Design and orchestration of agentic AI architectures</li>
-                  <li>Model deployment, monitoring, and scalability across distributed systems</li>
-                </ul>
+                      <p className="mt-5 text-gray-600 leading-relaxed">{skill.description}</p>
+
+                      {skill.details && (
+                        <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-gray-600">
+                          {skill.details.map((detail) => (
+                            <li key={detail} className="leading-relaxed">
+                              {detail}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
