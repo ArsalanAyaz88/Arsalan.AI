@@ -576,10 +576,10 @@ export default function Home() {
                   </button>
                 </div>
                 <div className="md:col-span-2">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">AI-Powered Medical LMS</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">AI Powered Learning Management System - LMS</h3>
                 <p className="text-gray-700 mb-2 pl-0">Technologies: Next.js, PostgreSQL, FastAPI, LangChain, LangGraph, OpenAI Agent SDK</p>
                 <p className="text-gray-700 leading-relaxed mb-4 pl-0">
-                  Our platform is an advanced Learning Management System tailored for medical education. Admins upload course videos—our AI generates customized assignments and quizzes for each course, and the system tracks student performance with real-time feedback and analytics.
+                  Our platform is an advanced Learning Management System tailored for Online education. Admins upload course videos—Admin can generates customized assignments and quizzes for each course, and the AI Powered system tracks student performance with real-time feedback and analytics.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                   <a
