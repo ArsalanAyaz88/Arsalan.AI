@@ -608,48 +608,145 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Project 3 */}
+              {/* Project 3 - YouTube MCP Server */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-start">
                 <div className="md:col-span-1">
                   <button
                     type="button"
-                    onClick={() => setActiveProjectImage({ src: '/image.png', alt: 'Project 3' })}
+                    onClick={() =>
+                      setActiveProjectImage({
+                        src: 'https://res.cloudinary.com/dz0nrto5b/image/upload/v1763185370/youtubemcpserverdf_fud8b3.png',
+                        alt: 'YouTube MCP Server',
+                      })
+                    }
                     className="relative w-full aspect-video overflow-hidden rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    aria-label="View Project 3 image"
+                    aria-label="View YouTube MCP Server image"
                   >
-                    <Image src="/image.png" alt="Project 3" fill className="object-cover" />
+                    <Image
+                      src="https://res.cloudinary.com/dz0nrto5b/image/upload/v1763185370/youtubemcpserverdf_fud8b3.png"
+                      alt="YouTube MCP Server"
+                      fill
+                      className="object-cover"
+                    />
                   </button>
                 </div>
                 <div className="md:col-span-2">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Project Name 3</h3>
-                <p className="text-gray-700 mb-2 pl-0">Technologies: PyTorch, LangChain, Kubernetes</p>
-                <p className="text-gray-700 leading-relaxed mb-4 pl-0">
-                  Brief description of the project. What problem it solves, what technologies were used, and what the outcome was.
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex h-full items-center justify-between rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-blue-500 transition-all hover:border-blue-400 hover:bg-blue-100 hover:text-blue-600"
-                  >
-                    <span className="font-light">View Project →</span>
-                    <svg className="h-4 w-4 opacity-80 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </a>
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex h-full items-center justify-between rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-blue-500 transition-all hover:border-blue-400 hover:bg-blue-100 hover:text-blue-600"
-                  >
-                    <span className="font-light">GitHub →</span>
-                    <svg className="h-4 w-4 opacity-80 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </a>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">YouTube MCP Server</h3>
+                  <p className="text-gray-700 mb-2 pl-0">
+                    Technologies: TypeScript, Node.js, Model Context Protocol (MCP), YouTube Data API
+                  </p>
+                  <p className="text-gray-700 leading-relaxed mb-4 pl-0">
+                    An MCP-compliant server that exposes YouTube as a structured tool for AI agents. It lets models browse
+                    channels and playlists, fetch video metadata and transcripts, and ground conversations in real YouTube
+                    content for research, summarization, and automation workflows.
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    <a
+                      href="https://huggingface.co/spaces/Arsalan-joiya/youtube-mcp-server"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex h-full items-center justify-between rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-blue-500 transition-all hover:border-blue-400 hover:bg-blue-100 hover:text-blue-600"
+                    >
+                      <span className="font-light">View Project</span>
+                      <svg
+                        className="h-4 w-4 opacity-80 transition-transform group-hover:translate-x-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        strokeWidth={2}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </a>
+                    <a
+                      href="https://github.com/ArsalanAyaz88/youtube-mcp-server.git"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex h-full items-center justify-between rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-blue-500 transition-all hover:border-blue-400 hover:bg-blue-100 hover:text-blue-600"
+                    >
+                      <span className="font-light">GitHub</span>
+                      <svg
+                        className="h-4 w-4 opacity-80 transition-transform group-hover:translate-x-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        strokeWidth={2}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
+              </div>
+
+              {/* Project 4 - Cortex Lane */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-start">
+                <div className="md:col-span-1">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setActiveProjectImage({
+                        src: 'https://res.cloudinary.com/dz0nrto5b/image/upload/v1763185304/cotrexlanwebsite_iwezim.png',
+                        alt: 'Cortex Lane - AI Services Company',
+                      })
+                    }
+                    className="relative w-full aspect-video overflow-hidden rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    aria-label="View Cortex Lane project image"
+                  >
+                    <Image
+                      src="https://res.cloudinary.com/dz0nrto5b/image/upload/v1763185304/cotrexlanwebsite_iwezim.png"
+                      alt="Cortex Lane - AI Services Company"
+                      fill
+                      className="object-cover"
+                    />
+                  </button>
+                </div>
+                <div className="md:col-span-2">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Cortex Lane - AI Services for Businesses</h3>
+                  <p className="text-gray-700 mb-2 pl-0">
+                    Technologies: Next.js, TypeScript, Tailwind CSS, Vercel
+                  </p>
+                  <p className="text-gray-700 leading-relaxed mb-4 pl-0">
+                    Marketing and lead-generation site for an AI consultancy that helps businesses adopt intelligent
+                    automation. Highlights service offerings, showcases case-study style sections, and funnels prospects
+                    into a clear contact flow for bespoke AI solutions.
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    <a
+                      href="https://cortex-lane.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex h-full items-center justify-between rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-blue-500 transition-all hover:border-blue-400 hover:bg-blue-100 hover:text-blue-600"
+                    >
+                      <span className="font-light">View Project</span>
+                      <svg
+                        className="h-4 w-4 opacity-80 transition-transform group-hover:translate-x-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        strokeWidth={2}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </a>
+                    <a
+                      href="https://github.com/ArsalanAyaz88/cortexLane.git"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex h-full items-center justify-between rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-blue-500 transition-all hover:border-blue-400 hover:bg-blue-100 hover:text-blue-600"
+                    >
+                      <span className="font-light">GitHub</span>
+                      <svg
+                        className="h-4 w-4 opacity-80 transition-transform group-hover:translate-x-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        strokeWidth={2}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
