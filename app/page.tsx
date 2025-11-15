@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import Image from 'next/image';
+import MyProjectsSection from './my_projects/MyProjectsSection';
 
 type Certification = {
   title: string;
@@ -103,7 +104,7 @@ const TECHNICAL_SKILLS: SkillSegment[] = [
     title: 'Artificial Intelligence & Machine Learning',
     subtitle: 'Research-grade model development',
     description:
-      'Designing agentic workflows, fine-tuning foundation models, and deploying production-ready AI systems.',
+      'Designing agentic workflows, fine-tuning foundation models, Computer Vision and deploying production-ready AI systems.',
     tags: [
       { name: 'PyTorch', tone: 'accent' },
       { name: 'TensorFlow', tone: 'dark' },
@@ -111,6 +112,7 @@ const TECHNICAL_SKILLS: SkillSegment[] = [
       { name: 'LangChain', tone: 'dark' },
       { name: 'LangGraph', tone: 'accent' },
       { name: 'OpenAI Agent SDK', tone: 'dark' },
+      { name: 'OpenCV', tone: 'dark' },
     ],
   },
   {
@@ -182,7 +184,6 @@ export default function Home() {
   const [isExiting, setIsExiting] = useState(false);
   const [activeCertification, setActiveCertification] = useState<Certification | null>(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [activeProjectImage, setActiveProjectImage] = useState<ProjectImage | null>(null);
 
   const handleNavigate = (sectionId: string) => {
     setIsSidebarOpen(false);
@@ -386,7 +387,7 @@ export default function Home() {
   }
 
   return (
-    <div className="relative flex min-h-screen bg-gray-50">
+    <div className="relative flex min-h-screen bg-white">
       <Sidebar
         onToggleHero={handleToggleHero}
         isMobileOpen={isSidebarOpen}
@@ -401,7 +402,7 @@ export default function Home() {
       )}
 
       <main className="flex-1 content-enter lg:ml-64">
-        <div className="sticky top-0 z-30 flex items-center justify-between gap-3 border-b border-gray-200 bg-gray-50/90 px-4 py-3 backdrop-blur-sm lg:hidden">
+        <div className="sticky top-0 z-30 flex items-center justify-between gap-3 border-b border-gray-200 bg-white/90 px-4 py-3 backdrop-blur-sm lg:hidden">
           <button
             type="button"
             onClick={() => setIsSidebarOpen(true)}
@@ -463,7 +464,7 @@ export default function Home() {
         </section>
 
         {/* Technical Skills Section */}
-        <section id="publications" className="bg-gray-50 px-4 py-12 sm:px-8 lg:px-12">
+        <section id="publications" className="bg-white px-4 py-12 sm:px-8 lg:px-12">
           <div className="max-w-4xl sm:mx-auto lg:ml-0 lg:mr-auto">
             <h1 className="mb-12 text-4xl font-bold text-gray-900">Technical Skills</h1>
 
@@ -513,277 +514,12 @@ export default function Home() {
         </section>
 
         {/* My Projects Section */}
-        <section id="projects" className="bg-white px-4 py-12 sm:px-8 lg:px-12">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl font-extrabold text-gray-900 mb-8 tracking-tight border-l-4 border-emerald-500 pl-3">My Projects</h1>
-            
-            <div className="space-y-6">
-              {/* Project 1 */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-start">
-                <div className="md:col-span-1">
-                  <button
-                    type="button"
-                    onClick={() => setActiveProjectImage({ src: 'https://res.cloudinary.com/dz0nrto5b/image/upload/v1763104200/youtubeAgentResearch_ahyisl.png', alt: 'Youtube Automation Agent' })}
-                    className="relative w-full aspect-video overflow-hidden rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    aria-label="View Youtube Automation Agent image"
-                  >
-                    <Image src="https://res.cloudinary.com/dz0nrto5b/image/upload/v1763104200/youtubeAgentResearch_ahyisl.png" alt="Youtube Automation Agent" fill className="object-cover" />
-                  </button>
-                </div>
-                <div className="md:col-span-2">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Youtube Automation Agent</h3>
-                <p className="text-gray-700 mb-2 pl-0">Technologies: Spec Kit, AI Driven Development (AIDD), Nextjs, FastAPI, OpenAI AgentSDK, Short Term Memory (STM), Long Term Memory (LTM), Central Memory (CM), Reinforcement Learning</p>
-                <p className="text-gray-700 leading-relaxed mb-4 pl-0">
-                  An intelligent agent that helps YouTube content creators discover future topic ideas by analyzing their competitor's or their own channel's past performance. Uses the latest 30 videos data to make data-driven content recommendations—no guesswork, just insights.
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  <a
-                    href="https://automation-agent-frontend.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex h-full items-center justify-between rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-blue-500 transition-all hover:border-blue-400 hover:bg-blue-100 hover:text-blue-600"
-                  >
-                    <span className="font-light">View Project</span>
-                    <svg className="h-4 w-4 opacity-80 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </a>
-                  <a
-                    href="https://github.com/ArsalanAyaz88/AutomationAgent_Backend.git"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex h-full items-center justify-between rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-blue-500 transition-all hover:border-blue-400 hover:bg-blue-100 hover:text-blue-600"
-                  >
-                    <span className="font-light">GitHub</span>
-                    <svg className="h-4 w-4 opacity-80 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </a>
-                </div>
-                </div>
-              </div>
-
-              {/* Project 2 */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-start">
-                <div className="md:col-span-1">
-                  <button
-                    type="button"
-                    onClick={() => setActiveProjectImage({ src: 'https://res.cloudinary.com/dz0nrto5b/image/upload/v1763104096/suti_bv2x1h.png', alt: 'AI-Powered Medical LMS' })}
-                    className="relative w-full aspect-video overflow-hidden rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    aria-label="View AI-Powered Medical LMS image"
-                  >
-                    <Image src="https://res.cloudinary.com/dz0nrto5b/image/upload/v1763104096/suti_bv2x1h.png" alt="AI-Powered Medical LMS" fill className="object-cover" />
-                  </button>
-                </div>
-                <div className="md:col-span-2">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">AI Powered Learning Management System - LMS</h3>
-                <p className="text-gray-700 mb-2 pl-0">Technologies: Next.js, PostgreSQL, FastAPI, LangChain, LangGraph, OpenAI Agent SDK</p>
-                <p className="text-gray-700 leading-relaxed mb-4 pl-0">
-                  Our platform is an advanced Learning Management System tailored for Online education. Admins upload course videos—Admin can generates customized assignments and quizzes for each course, and the AI Powered system tracks student performance with real-time feedback and analytics.
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  <a
-                    href="https://lms-frontend-rho-one.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex h-full items-center justify-between rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-blue-500 transition-all hover:border-blue-400 hover:bg-blue-100 hover:text-blue-600"
-                  >
-                    <span className="font-light">View Project</span>
-                    <svg className="h-4 w-4 opacity-80 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </a>
-                  <a
-                    href="https://github.com/ArsalanAyaz88/LMS-Frontend.git"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex h-full items-center justify-between rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-blue-500 transition-all hover:border-blue-400 hover:bg-blue-100 hover:text-blue-600"
-                  >
-                    <span className="font-light">GitHub</span>
-                    <svg className="h-4 w-4 opacity-80 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </a>
-                </div>
-                </div>
-              </div>
-
-              {/* Project 3 - YouTube MCP Server */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-start">
-                <div className="md:col-span-1">
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setActiveProjectImage({
-                        src: 'https://res.cloudinary.com/dz0nrto5b/image/upload/v1763185370/youtubemcpserverdf_fud8b3.png',
-                        alt: 'YouTube MCP Server',
-                      })
-                    }
-                    className="relative w-full aspect-video overflow-hidden rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    aria-label="View YouTube MCP Server image"
-                  >
-                    <Image
-                      src="https://res.cloudinary.com/dz0nrto5b/image/upload/v1763185370/youtubemcpserverdf_fud8b3.png"
-                      alt="YouTube MCP Server"
-                      fill
-                      className="object-cover"
-                    />
-                  </button>
-                </div>
-                <div className="md:col-span-2">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">YouTube MCP Server</h3>
-                  <p className="text-gray-700 mb-2 pl-0">
-                    Technologies: TypeScript, Node.js, Model Context Protocol (MCP), YouTube Data API
-                  </p>
-                  <p className="text-gray-700 leading-relaxed mb-4 pl-0">
-                    An MCP-compliant server that exposes YouTube as a structured tool for AI agents. It lets models browse
-                    channels and playlists, fetch video metadata and transcripts, and ground conversations in real YouTube
-                    content for research, summarization, and automation workflows.
-                  </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                    <a
-                      href="https://huggingface.co/spaces/Arsalan-joiya/youtube-mcp-server"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex h-full items-center justify-between rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-blue-500 transition-all hover:border-blue-400 hover:bg-blue-100 hover:text-blue-600"
-                    >
-                      <span className="font-light">View Project</span>
-                      <svg
-                        className="h-4 w-4 opacity-80 transition-transform group-hover:translate-x-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </a>
-                    <a
-                      href="https://github.com/ArsalanAyaz88/youtube-mcp-server.git"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex h-full items-center justify-between rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-blue-500 transition-all hover:border-blue-400 hover:bg-blue-100 hover:text-blue-600"
-                    >
-                      <span className="font-light">GitHub</span>
-                      <svg
-                        className="h-4 w-4 opacity-80 transition-transform group-hover:translate-x-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Project 4 - Cortex Lane */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-start">
-                <div className="md:col-span-1">
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setActiveProjectImage({
-                        src: 'https://res.cloudinary.com/dz0nrto5b/image/upload/v1763185304/cotrexlanwebsite_iwezim.png',
-                        alt: 'Cortex Lane - AI Services Company',
-                      })
-                    }
-                    className="relative w-full aspect-video overflow-hidden rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    aria-label="View Cortex Lane project image"
-                  >
-                    <Image
-                      src="https://res.cloudinary.com/dz0nrto5b/image/upload/v1763185304/cotrexlanwebsite_iwezim.png"
-                      alt="Cortex Lane - AI Services Company"
-                      fill
-                      className="object-cover"
-                    />
-                  </button>
-                </div>
-                <div className="md:col-span-2">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Cortex Lane - AI Services for Businesses</h3>
-                  <p className="text-gray-700 mb-2 pl-0">
-                    Technologies: Next.js, TypeScript, Tailwind CSS, Vercel
-                  </p>
-                  <p className="text-gray-700 leading-relaxed mb-4 pl-0">
-                    Marketing and lead-generation site for an AI consultancy that helps businesses adopt intelligent
-                    automation. Highlights service offerings, showcases case-study style sections, and funnels prospects
-                    into a clear contact flow for bespoke AI solutions.
-                  </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                    <a
-                      href="https://cortex-lane.vercel.app/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex h-full items-center justify-between rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-blue-500 transition-all hover:border-blue-400 hover:bg-blue-100 hover:text-blue-600"
-                    >
-                      <span className="font-light">View Project</span>
-                      <svg
-                        className="h-4 w-4 opacity-80 transition-transform group-hover:translate-x-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </a>
-                    <a
-                      href="https://github.com/ArsalanAyaz88/cortexLane.git"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex h-full items-center justify-between rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-blue-500 transition-all hover:border-blue-400 hover:bg-blue-100 hover:text-blue-600"
-                    >
-                      <span className="font-light">GitHub</span>
-                      <svg
-                        className="h-4 w-4 opacity-80 transition-transform group-hover:translate-x-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <section id="projects" className="mt-6 bg-white px-4 py-12 sm:px-8 lg:px-12">
+          <MyProjectsSection />
         </section>
 
-        {activeProjectImage && (
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 overflow-auto"
-            onClick={() => setActiveProjectImage(null)}
-          >
-            <div
-              className="relative w-full max-w-5xl mx-auto my-auto"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                type="button"
-                onClick={() => setActiveProjectImage(null)}
-                className="absolute top-3 right-3 text-white text-3xl leading-none focus:outline-none bg-black rounded-full px-2 py-0.5"
-                aria-label="Close project image preview"
-              >
-                ×
-              </button>
-              <Image
-                src={activeProjectImage.src}
-                alt={activeProjectImage.alt}
-                width={1600}
-                height={900}
-                className="w-full h-auto max-h-[80vh] rounded-lg object-contain"
-                priority
-              />
-            </div>
-          </div>
-        )}
-
         {/* Research Section */}
-        <section id="research" className="bg-gray-50 px-4 py-12 sm:px-8 lg:px-12">
+        <section id="research" className="bg-white px-4 py-12 sm:px-8 lg:px-12">
           <div className="max-w-4xl">
             <h1 className="text-4xl font-bold text-gray-900 mb-8">Research Papers Code</h1>
             
@@ -819,7 +555,7 @@ export default function Home() {
         </section>
 
         {/* Teaching Section */}
-        <section id="teaching" className="bg-gray-50 px-4 py-12 sm:px-8 lg:px-12">
+        <section id="teaching" className="bg-white px-4 py-12 sm:px-8 lg:px-12">
           <div className="max-w-4xl">
             <h1 className="text-4xl font-bold text-gray-900 mb-8">Teaching</h1>
             
@@ -887,7 +623,7 @@ export default function Home() {
         </section>
 
         {/* Certifications Section */}
-        <section id="certifications" className="bg-gray-50 px-4 py-12 sm:px-8 lg:px-12">
+        <section id="certifications" className="bg-white px-4 py-12 sm:px-8 lg:px-12">
           <div className="max-w-6xl">
             <h1 className="text-4xl font-bold text-gray-900 mb-8">Certifications</h1>
             

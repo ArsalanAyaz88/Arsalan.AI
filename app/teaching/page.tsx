@@ -2,10 +2,10 @@ import Sidebar from '../components/Sidebar';
 
 export default function Teaching() {
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex min-h-screen bg-white">
       <Sidebar />
       
-      <main className="ml-64 flex-1 p-12">
+      <main className="ml-64 flex-1 px-4 py-8 sm:px-8 lg:px-12">
         <div className="max-w-4xl">
           <h1 className="text-4xl font-bold text-gray-900 mb-8">Teaching</h1>
           
